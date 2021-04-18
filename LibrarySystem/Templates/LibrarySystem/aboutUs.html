@@ -1,0 +1,44 @@
+{% extends 'LibrarySystem/base.html' %}
+{% load static %}
+
+
+{% block head %}
+<title>HILLCREST ◦ About Us</title>
+<link href="{% static 'css/aboutUs.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block content %}
+<div id="parent">
+    <div class="para">
+        <p>The Hillcrest Library Website provides many features and works hand in hand with the Hillcrest National STEM
+            Boys'
+            School Library. It's use is to reduce congestion in the physical library. Seeing that Hillcrest has developed
+            in
+            terms of technology it offers pupils a platform to view books at the library on screen and even offers them
+            the
+            opportunity to download softcopy books and share their own books on the website.
+        </p>
+        <p>The main intention of this website is to help in the battle of the covid-19 pandemic by controlling the
+            number of
+            pupils while observing social distancing as pupils visit the library.it also regulates the distribution of
+            books
+            making it easier to keep tabs on borrowed books and quantity of books available at the library.</p>
+        <ul>School Library Prefects:
+                <li>Maria Makasa</li>
+                <li>Boston Munsaka</li>
+        </ul>
+        <img src="{% static 'media/giphy.gif' %}" alt="Gif not found" width="100px" style="text-align: center;">
+    </div>
+</div>
+<div class="creator-container">
+    <div class="creators" style="background-image:url('/static/media/placeholder.jpg')">Marcus Kasamu</div>
+    <div class="creator-container"></div>
+    <div class="creators" style="background-image:url('/static/media/placeholder.jpg')">Thomas Ngulube</div>
+</div>
+
+<div class="last">
+    <video src="{% static 'media/video.mp4' %}" height="100%" width="100%" autoplay loop></video>
+    <header class="vid outflow">Enjoy</header>
+</div>
+
+{% endblock content %}

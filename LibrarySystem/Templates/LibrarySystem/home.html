@@ -1,0 +1,40 @@
+{% extends 'LibrarySystem/base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>HILLCREST ◦ Home</title>
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <script src="{% static 'js/home.js' %}" defer="true"></script>
+{% endblock head %}
+
+{% block content %}
+    <ul id='home-image-container'>
+        <li class="slide active"></li>
+        <li class="slide"></li>
+        <li class="slide"></li>
+        <li class="slide"></li>
+        <div id="header-container">
+            <p id="header-text">HILLCREST LIBRARY</p>
+            <p>Read. Learn. Develop</p>
+        </div>
+        <a href="#latest_books_container" id="bottom-arrow"><img src="{% static 'media/down-arrow.png' %}"><a>
+    </ul>
+    <div id="header" class="home-header header">LATEST BOOKS</div>
+    <div id="latest_books_container">
+        <div id="separate">
+            <p class="header left">Hardcopy Books</p>
+            <div class="latest">            
+                {% for hardbook in latestHardBook %}
+                    <div class="latest_book" ><img src="{{hardbook.image.url}}"><p>{{hardbook.title}}</p></div>
+                {% endfor %}
+            </div>
+            <p class="header left">Softcopy Books</p>
+            <div class="latest">
+                
+                {% for softbook in latestSoftBook %}
+                    <a class="latest_book" href={% url 'LibrarySystem:preview' softbook.pk %}><img src="{{softbook.image.url}}"><p>{{softbook.title}}</p></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

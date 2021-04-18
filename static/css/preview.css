@@ -1,0 +1,56 @@
+body {
+    background-color: #ffe6ea;
+    animation: change_color 10s infinite;
+    -moz-animation: change_color 10s infinite;
+    -webkit-animation: change_color 20s infinite;
+}
+
+.read_pdf {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 90px;
+    height: 90vh;
+    margin-bottom: 50px;
+}
+
+@keyframes change_color {
+    0% {
+        background-color: #ffe6ea;
+    }
+
+    10% {
+        background-color: #ffb3d9;
+    }
+
+    20% {
+        background-color: #ffb3ff;
+    }
+
+    30% {
+        background-color: #d9b3ff;
+    }
+
+    40% {
+        background-color: #b3b3ff;
+    }
+    50% {
+        background-color: #b3ffd9;
+    }
+    60% {
+        background-color: #b3b3ff;
+    }
+    70% {
+        background-color: #d9b3ff;
+    }
+    80% {
+        background-color: #ffb3ff;
+    }
+    90% {
+        background-color: #ffb3d9;
+    }
+    100% {
+        background-color: #ffe6ea;
+    }
+}

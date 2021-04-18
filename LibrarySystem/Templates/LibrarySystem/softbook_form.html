@@ -1,0 +1,75 @@
+{% extends 'LibrarySystem/base.html' %}
+{% load static %}
+
+
+{% block head %}
+<title>HILLCREST ◦ Books</title>
+<link href="{% static 'css/softbook_form.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class='alert {{ message.tags }}' id="msg">
+    {{ message }}
+    <audio src="{% static 'media/audio/Blop.wav' %}" id="pop_sound" style="display: none;" preload="auto"></audio>
+</div>
+{% endfor %}
+{% endif %}
+<div id="softbook_form">
+    <form action="" method="post" enctype="multipart/form-data">
+        <h4 class="caption">ADD BOOK TO LIBRARY</h4>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button onclick="showNotification()" type="submit">Post</button>
+        <button onclick="hideSoftbookForm()">Cancel</button>
+    </form>
+</div>
+
+<div id="filter-post">
+    <input class="filter" id="filter" type="text" placeholder="Filter tables by title..." onkeyup="searchBooks()">
+</div>
+
+<div class="book-container">
+    <table class="books-table" id="tableId">
+        <caption class="header">HARDCOPY BOOKS</caption>
+        <tr id="table-head">
+            <th>Cover</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Quantity</th>
+        </tr>
+        {% for hardbook in hardbooks %}
+            <tr>
+                <td>
+                    <div class="cover-image" style="background-image: url({{hardbook.image.url}});"></div>
+                </td>
+                <td>{{hardbook.title}}</td>
+                <td>{{hardbook.genre}}</td>
+                <td>{{hardbook.quantity}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="books-table softbooks-table" class="tableId">
+        <caption class="header">SOFTCOPY BOOKS</caption>
+        <tr id="table-head">
+            <th>Cover</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>File</th>            
+        </tr>
+        {% for softbook in softbooks %}
+            <tr>
+                <td>
+                    <div class="cover-image" style="background-image: url({{softbook.image.url}});"></div>
+                </td>
+                <td>{{softbook.title}}</td>
+                <td>{{softbook.genre}}</td>
+                <td><a href={% url 'LibrarySystem:preview' softbook.id %}><img src="{% static 'media/pdf.png' %}"><a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <button onclick="showSoftbookForm()">ADD A SOFTCOPY BOOK!</button>
+</div>
+{% endblock content %}
