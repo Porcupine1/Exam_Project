@@ -28,7 +28,7 @@ SECRET_KEY = 'm$%_k9zy2(qrsi(if4eixo*%q6g3vib!jf(fgc9b#@**l4x*a%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'hillcrestvirtuallibrary.herokuapp.com']
+ALLOWED_HOSTS = ['hillcrestvirtuallibrary.herokuapp.com/']
 
 
 # Application definition
