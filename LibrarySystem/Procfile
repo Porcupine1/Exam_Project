@@ -1,1 +1,0 @@
-wen gunicorn projectname Exam_Project.wsgi:application --logfile -
