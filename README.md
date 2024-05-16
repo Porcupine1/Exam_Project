@@ -1,4 +1,4 @@
-# SCHOOL LIBRARAY SYSTEM
+# SCHOOL LIBRARY SYSTEM
 visit: https://dreaddoc.pythonanywhere.com/
 
 Make sure Python is installed
